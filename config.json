@@ -1,0 +1,26 @@
+{
+    "trakt_api": {
+        "client_id": "47e824ecb825f541aefaf0723f1af3c555629fd4e11077ad3cfb1ed4a09b1202",
+        "client_secret": "c7fb62108a8eab402e3c5d37a5d50f4d3c0f327440edf3fc9d1717cebc3468eb",
+        "cache_lifetime_hours": 24
+    },
+    "tagger_configs": {
+        "standup": {
+            "genres": ["Comedy"],
+            "add_label": "standup",
+            "reject_label": "verified_not_standup",
+            "schedule_offset_hours": 1,
+            "prompt": "You are a strict media analyst. Determine if the following title is a Stand-up Comedy Special.\n\nTitle: {title}\nSummary: {summary}\n\nIMMEDIATELY REJECT (Return False) if:\n- It is ANIMATED or a cartoon (e.g., 'Kiff' or 'Lore of the Ring Light').\n- It is a narrative film, parody, or 'slapstick' movie with a cast playing characters (e.g., 'The Naked Gun').\n- The summary describes a plot, adventure, mission, or 'storyline'.\n- It features an ensemble cast or voice actors rather than one main comedian performing a set.\n\nACCEPT (Return True) ONLY if:\n- It is a singular, live stage performance by a comedian (monologue/set).\n- The summary explicitly mentions 'on stage', 'live performance', or 'stand-up special'.\n\nBe extremely skeptical. Respond ONLY with 'True' or 'False'."
+        },
+        "sappy_christmas": {
+
+            "add_label": "sappy_christmas",
+            "reject_label": "verified_not_sappy_christmas",
+            "schedule_offset_hours": 2,
+            "genres": ["Holiday", "Christmas", "Romance", "Comedy", "Family", "Drama"],
+            "pre_ai_keywords": ["christmas", "holiday", "winter", "snow", "santa", "mistletoe", "elf", "reindeer", "family", "love", "romance", "town", "miracle", "magic", "eve", "gift", "jingle", "bells", "cookie", "decorate"],
+            "pre_ai_keyword_threshold": 2,
+            "prompt": "You are a media analyst with a knack for spotting \"sappy\" Christmas movies, like those commonly produced by Hallmark, Lifetime, or similar television networks.\n\nTitle: {title}\nSummary: {summary}\n\nFIRST, determine if this is a CHRISTMAS or HOLIDAY-themed movie based on its title or summary. If NOT, IMMEDIATELY REJECT (Return False).\n\nIf it IS Christmas/Holiday-themed, then analyze the provided details and determine if the movie fits the \"sappy Christmas movie\" trope.\n\nIMMEDIATELY REJECT (Return False) if:\n- It is a critically acclaimed, widely recognized classic Christmas film, often with significant cinematic production value, a theatrical release, or a long-standing cultural impact (e.g., 'It's a Wonderful Life', 'A Christmas Story', 'Elf', 'Home Alone', 'Die Hard', 'Miracle on 34th Street').\n- It is animated.\n- The plot does not revolve around Christmas.\n- The summary indicates action, thriller, horror, or deep drama, or a serious dramatic narrative not typical of made-for-TV romance.\n- It is clearly a major studio production rather than a television film.\n\nACCEPT (Return True) ONLY if it contains several of these classic \"sappy\" tropes AND aligns with the style of a made-for-TV holiday movie:\n- A big-city professional returning to their charming small hometown for the holidays.\n- The protagonist is cynical about Christmas or love and rediscovers the \"magic of Christmas.\"\n- A plot involving saving a local business (e.g., a bakery, inn, Christmas tree farm).\n- A \"meet-cute\" with a handsome/beautiful local.\n- A love triangle or a choice between a career-focused city partner and a down-to-earth hometown love interest.\n- Royalty, secret identities, or magical elements like Santa or wishes coming true.\n- A focus on heartwarming romance, family values, and community in a often predictable, feel-good manner.\n\nBe extremely critical. Your job is to strictly find the formulaic, feel-good, often predictable made-for-TV holiday movies. Respond ONLY with 'True' or 'False'.\n"
+        }
+    }
+}
