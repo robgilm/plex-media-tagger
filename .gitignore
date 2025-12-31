@@ -1,3 +1,10 @@
 .env
 __pycache__/
 *.log
+
+session_context.json
+
+# AI History
+session_context.json
+*.log
+chat_history/
